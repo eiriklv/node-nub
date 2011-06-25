@@ -21,3 +21,14 @@ exports.objects = function () {
         [ 1, 2, 3, xs, ys, 7, 5 ]
     );
 };
+
+exports.mixed = function () {
+    var xs = [ 1, 2, '3', 3, 2, '2' ];
+    var res = nub(xs);
+    
+    assert.deepEqual(res, [ 1, 2, '3', 3, '2' ]);
+    assert.deepEqual(
+        res.map(function (r) { return typeof r }),
+        [ 'number', 'number', 'string', 'number', 'string' ]
+    );
+};
