@@ -11,6 +11,16 @@ and
 functions in
 [Data.List](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-List.html).
 
+example
+=======
+
+    $ node
+    > var nub = require('nub')
+    > nub([1,2,2,3,1,3])
+    [ 1, 2, 3 ]
+    > nub.by([ 2, 3, 5, 7, 8 ], function (x,y) { return x + y === 10 })
+    [ 2, 3, 5 ]
+
 methods
 =======
 
