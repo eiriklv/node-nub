@@ -1,4 +1,4 @@
-var uniq = module.exports = function (xs) {
+var nub = module.exports = function (xs) {
     var keys = {};
     var objects = [];
     var res = [];
@@ -22,5 +22,29 @@ var uniq = module.exports = function (xs) {
     return res;
 };
 
-uniq.by = function (xs, fn) {
+nub.by = function (xs, cmp) {
+    if (typeof xs === 'function') {
+        var cmp_ = cmp;
+        cmp = xs;
+        xs = cmp_;
+    }
+    
+    var res = [];
+    
+    for (var i = 0; i < xs.length; i++) {
+        var x = xs[i];
+        
+        var found = false;
+        for (var j = 0; j < res.length; j++) {
+            var y = res[j];
+            if (cmp.call(res, x, y)) {
+                found = true;
+                break;
+            }
+        }
+        
+        if (!found) res.push(x);
+    }
+    
+    return res;
 };
