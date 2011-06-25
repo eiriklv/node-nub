@@ -23,12 +23,24 @@ exports.objects = function () {
 };
 
 exports.mixed = function () {
-    var xs = [ 1, 2, '3', 3, 2, '2' ];
+    var f = function () {};
+    var g = function () {};
+    var re = /meow/;
+    
+    var xs = [
+        1, 2, '3', 3, 2, '2', f, f, g, re, false, false, true, false, re,
+        undefined, null, undefined, 1, null, null, undefined
+    ];
     var res = nub(xs);
     
-    assert.deepEqual(res, [ 1, 2, '3', 3, '2' ]);
+    assert.deepEqual(res, [
+        1, 2, '3', 3, '2', f, g, re, false, true, undefined, null
+    ]);
     assert.deepEqual(
         res.map(function (r) { return typeof r }),
-        [ 'number', 'number', 'string', 'number', 'string' ]
+        [
+            'number', 'number', 'string', 'number', 'string', 'function',
+            'function', 'function', 'boolean', 'boolean', 'undefined', 'object'
+        ]
     );
 };
