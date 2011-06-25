@@ -38,3 +38,14 @@ exports.mod = function () {
         [ 1, 6, 3, 4 ]
     );
 };
+
+exports.dispatchMod = function () {
+    var xs = { a : 1, b : 2 };
+    var ys = { a : 1, b : 2 };
+    assert.deepEqual(
+        nub([ 1, 6, 3, 4, 5, 2, 7, 8 ], function (x, y) {
+            return x % 4 === y % 4
+        }),
+        [ 1, 6, 3, 4 ]
+    );
+};

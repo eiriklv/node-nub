@@ -1,4 +1,8 @@
-var nub = module.exports = function (xs) {
+var nub = module.exports = function (xs, cmp) {
+    if (typeof xs === 'function' || cmp) {
+        return nub.by(xs, cmp);
+    }
+    
     var keys = {};
     var objects = [];
     var res = [];
