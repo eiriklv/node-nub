@@ -3,22 +3,32 @@ var nub = module.exports = function (xs, cmp) {
         return nub.by(xs, cmp);
     }
     
-    var keys = {};
-    var objects = [];
+    var keys = {
+        'object' : [],
+        'function' : [],
+        'string' : {},
+        'number' : {},
+        'boolean' : {},
+        'undefined' : {}
+    };
+    
     var res = [];
     
     for (var i = 0; i < xs.length; i++) {
         var x = xs[i];
-        var tx = typeof x;
+        var recs = x === '__proto__'
+            ? keys.objects
+            : keys[typeof x] || keys.objects
+        ;
         
-        if (tx === 'object' || tx === 'function' || x === '__proto__') {
-            if (objects.indexOf(x) < 0) {
-                objects.push(x);
+        if (Array.isArray(recs)) {
+            if (recs.indexOf(x) < 0) {
+                recs.push(x);
                 res.push(x);
             }
         }
-        else if (!Object.hasOwnProperty.call(keys, x)) {
-            keys[x] = true;
+        else if (!Object.hasOwnProperty.call(recs, x)) {
+            recs[x] = true;
             res.push(x);
         }
     }
