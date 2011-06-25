@@ -4,7 +4,12 @@ nub
 Return all the unique elements of an array. You can specify your own uniqueness
 comparison function with `nub.by` too.
 
-These work like haskell's `nub` and `nubBy` functions in Data.List.
+These work like haskell's
+[`nub`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-List.html#v:nub)
+and
+[`nubBy`](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-List.html#v:nubBy)
+functions in
+[Data.List](http://hackage.haskell.org/packages/archive/base/latest/doc/html/Data-List.html).
 
 methods
 =======
