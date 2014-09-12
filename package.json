@@ -1,14 +1,8 @@
 {
   "name": "nub",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Uniqueness functions",
   "main": "index.js",
-  "directories": {
-    "lib": ".",
-    "example": "example",
-    "test": "test"
-  },
-  "dependencies": {},
   "devDependencies": {
     "tape": "^2.14.0"
   },
@@ -31,8 +25,5 @@
     "email": "mail@substack.net",
     "url": "http://substack.net"
   },
-  "license": "MIT/X11",
-  "engine": {
-    "node": ">=0.4"
-  }
+  "license": "MIT"
 }
