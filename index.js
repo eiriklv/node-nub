@@ -17,8 +17,8 @@ var nub = module.exports = function (xs, cmp) {
     for (var i = 0; i < xs.length; i++) {
         var x = xs[i];
         var recs = x === '__proto__'
-            ? keys.objects
-            : keys[typeof x] || keys.objects
+            ? keys.object
+            : keys[typeof x] || keys.object
         ;
         
         if (Array.isArray(recs)) {
